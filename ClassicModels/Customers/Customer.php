@@ -5,11 +5,11 @@ namespace Mohamed\ClassicModels\Customers;
 class Customer{
     function __construct(public int | null $number, public string $name, 
                          public string $lastName, public string $firstName,
-                         public string $extension, public string $phone, 
-                         public string $adrressLine1, public string $adrressLine2,
-                         public string $city, public string $state,
-                         public string $postalCode, public string $country,
-                         public int $employee, public float $creditLimit){}
+                         public string $phone, 
+                         public string | null $addressLine1, public string | null $addressLine2,
+                         public string $city, public string | null $state,
+                         public string | null $postalCode, public string $country,
+                         public int | null $employee, public float | null $credit){}
 
     function validate(): array{
         $errores = [];

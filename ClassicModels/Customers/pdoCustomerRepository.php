@@ -16,60 +16,53 @@ class PDOCustomerRepository{
 
     function get(int $number): Customer | null{
         $stm = $this->conn->prepare("SELECT * 
-                                    FROM employees 
-                                    where employeeNumber = :number");
+                                    FROM customers 
+                                    where customerNumber = :number");
         $stm->execute(array(':number' => $number));
 
         $result = $stm->fetch();
         if($result){
             //return $result;
-            return new Customer(intval($result['employeeNumber']), $result['lastName'], $result['firstName'], $result['extension'], $result['email'], $result['officeCode'], intval($result['reportsTo']), $result['jobTitle']);
+            return new Customer(intval($result['customerNumber']), $result['customerName'], $result['contactLastName'], $result['contactFirstName'], $result['phone'], $result['addressLine1'], $result['addressLine2'], $result['city'], $result['state'], $result['postalCode'], $result['country'], intval($result['salesRepEmployeeNumber']), floatval($result['creditLimit']));
         }else{
             return null;
         }
     }
 
-    function update(Customer $employee): void{
-        $stm = $this->conn->prepare("UPDATE employees SET firstName=:firstName,
-                                                          lastName=:lastName,
-                                                          firstName=:firstName,
-                                                          extension=:extension,
-                                                          email=:email,
-                                                          officeCode=:officeCode,
-                                                          reportsTo=:reportsTo,
-                                                          jobTitle=:jobTitle
-                                    WHERE employeeNumber=:number");
-        $stm->execute(array(':number' => $employee->number, 
-                            ':lastName' => $employee->lastName, 
-                            ':firstName' => $employee->firstName,
-                            ':extension' => $employee->extension,
-                            ':email' => $employee->email,
-                            ':officeCode' => $employee->officeCode,
-                            ':reportsTo' => $employee->reportsTo,
-                            ':jobTitle' => $employee->jobTitle
+    function update(Customer $customer): void{
+        $stm = $this->conn->prepare("UPDATE customers SET customerName=:name,
+                                                          contactLastName=:lastName,
+                                                          contactFirstName=:firstName,
+                                                          phone=:phone,
+                                                          addressLine1=:addressLine1,
+                                                          addressLine2=:addressLine2,
+                                                          city=:city,
+                                                          state=:state,
+                                                          postalCode=:postalCode,
+                                                          country=:country,
+                                                          salesRepEmployeeNumber=:employee,
+                                                          creditLimit=:credit
+                                    WHERE customerNumber=:number");
+        $stm->execute(array(':name' => $customer->name, 
+                            ':lastName' => $customer->lastName, 
+                            ':firstName' => $customer->firstName,
+                            ':phone' => $customer->phone,
+                            ':addressLine1' => $customer->addressLine1,
+                            ':addressLine2' => $customer->addressLine2,
+                            ':city' => $customer->city,
+                            ':state' => $customer->state,
+                            ':postalCode' => $customer->postalCode,
+                            ':country' => $customer->country,
+                            ':employee' => $customer->employee,
+                            ':credit' => $customer->credit,
+                            ':number' => $customer->number
                         )
                     );
     }
 
-    public function getOfficeCodesCities(): array{
-        $stm = $this->conn->prepare('SELECT officeCode, city FROM offices');
-
-        $stm->execute();
-
-        return $stm->fetchAll();
-    }
-
-    public function getNumbersNames(): array{
-        $stm = $this->conn->prepare('SELECT employeeNumber, lastName, firstName FROM employees');
-
-        $stm->execute();
-
-        return $stm->fetchAll();
-    }
-
     private function getNextNumber(): int {
-        $stm = $this->conn->query("SELECT max(employeeNumber) as maxNumber 
-                                 FROM employees");
+        $stm = $this->conn->query("SELECT max(customerNumber) as maxNumber 
+                                 FROM customers");
 
         $stm->execute();
 
@@ -84,30 +77,41 @@ class PDOCustomerRepository{
         return $stm->fetchAll();
     }
 
-    function insert(Customer $employee): void{
-        $stm = $this->conn->prepare("INSERT INTO employees(employeeNumber, lastName,firstName, extension, email, officeCode, reportsTo, jobTitle) 
-                                                    VALUES(:employeeNumber,
+    function insert(Customer $customer): void{
+        $stm = $this->conn->prepare("INSERT INTO customers(customerNumber, customerName, contactLastName, contactFirstName, phone, addressLine1, addressLine2, city, state, postalCode, country, salesRepEmployeeNumber, creditLimit) 
+                                                    VALUES(:number,
+                                                        :name,
                                                         :lastName,
                                                         :firstName,
-                                                        :extension,
-                                                        :email,
-                                                        :officeCode,
-                                                        :reportsTo,
-                                                        :jobTitle)");
+                                                        :phone,
+                                                        :addressLine1,
+                                                        :addressLine2,
+                                                        :city,
+                                                        :state,
+                                                        :postalCode,
+                                                        :country,
+                                                        :employee,
+                                                        :credit)");
         
-        $stm->execute(array(':employeeNumber' => $this->getNextNumber(),
-                            ':lastName' => $employee->lastName, 
-                            ':firstName' => $employee->firstName,
-                            ':extension' => $employee->extension,
-                            ':email' => $employee->email,
-                            ':officeCode' => $employee->officeCode,
-                            ':reportsTo' => $employee->reportsTo,
-                            ':jobTitle' => $employee->jobTitle)
+        $stm->execute(array(':number' => $this->getNextNumber(),
+                            ':name' => $customer->name, 
+                            ':lastName' => $customer->lastName, 
+                            ':firstName' => $customer->firstName,
+                            ':phone' => $customer->phone,
+                            ':addressLine1' => $customer->addressLine1,
+                            ':addressLine2' => $customer->addressLine2,
+                            ':city' => $customer->city,
+                            ':state' => $customer->state,
+                            ':postalCode' => $customer->postalCode,
+                            ':country' => $customer->country,
+                            ':employee' => $customer->employee,
+                            ':credit' => $customer->credit
+                            )
                     );
     }
 
     function delete(int $number): void{
-        $stm = $this->conn->prepare("DELETE FROM employees WHERE employeeNumber=:number");
+        $stm = $this->conn->prepare("DELETE FROM customers WHERE customerNumber=:number");
         $stm->execute(array(':number'=>$number));
     }
 }

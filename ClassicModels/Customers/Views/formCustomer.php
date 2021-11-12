@@ -14,47 +14,77 @@
         <?php endforeach; ?>
     <?php endif; ?>
 
-    <form action="../Others/saveEmployee_controller.php" method="POST">
+    <form action="../Others/saveCustomer_controller.php" method="POST">
         <p>
             <label for="number">Customer Number</label>
-            <input name="number" value="<?=$employee->number?>" readonly>
+            <input name="number" value="<?=$customer->number?>" readonly>
         </p>
         
         <p>
-            <label for="jobTitle">Job Title</label>
-            <input type="text" name="jobTitle" id="jobTitle" value="<?=$employee->jobTitle?>">
+            <label for="name">Customer Name</label>
+            <input type="text" name="name" id="name" value="<?=$customer->name?>">
         </p>
 
         <p>
             <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" id="lastName" value="<?=$employee->lastName?>">
+            <input type="text" name="lastName" id="lastName" value="<?=$customer->lastName?>">
         </p>
 
         <p>
             <label for="firstName">First Name</label>
-            <input type="text" name="firstName" id="firstName" value="<?=$employee->firstName?>">
+            <input type="text" name="firstName" id="firstName" value="<?=$customer->firstName?>">
         </p>
 
         <p>
-            <label for="extension">Extension</label>
-            <input type="text" name="extension" id="extension" value="<?=$employee->extension?>">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" value="<?=$customer->phone?>">
         </p>
 
         <p>
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" value="<?=$employee->email?>">
+            <label for="addressLine1">Address Line 1</label>
+            <input type="text" name="addressLine1" id="addressLine1" value="<?=$customer->addressLine1?>">
         </p>
 
         <p>
-            <label for="officeCode">Office Code</label>
-            <select name="officeCode" id="officeCode">
-                <?php foreach($offices as $office): ?>
-                    <option value="<?=$office['officeCode']?>"
-                        <?=$employee->officeCode==$office['officeCode'] ? 'selected' : ''?>>
-                    <?=$office['officeCode'] . '-' . $office['city']?>
+            <label for="addressLine2">Address Line 2</label>
+            <input type="text" name="addressLine2" id="addressLine2" value="<?=$customer->addressLine2?>">
+        </p>
+
+        <p>
+            <label for="city">City</label>
+            <input type="text" name="city" id="city" value="<?=$customer->city?>">
+        </p>
+
+        <p>
+            <label for="state">State</label>
+            <input type="text" name="state" id="state" value="<?=$customer->state?>">
+        </p>
+
+        <p>
+            <label for="postalCode">Postal Code</label>
+            <input type="text" name="postalCode" id="postalCode" value="<?=$customer->postalCode?>">
+        </p>
+
+        <p>
+            <label for="country">Country</label>
+            <input type="text" name="country" id="country" value="<?=$customer->country?>">
+        </p>
+
+        <p>
+            <label for="employee">Sales Representative Employee Number</label>
+            <select name="employee" id="employee">
+                <?php foreach($employees as $employee): ?>
+                    <option value="<?=$employee['employeeNumber']?>"
+                        <?=$customer->employee==$employee['employeeNumber'] ? 'selected' : ''?>>
+                    <?=$employee['employeeNumber']?>
                     </option>
                 <?php endforeach; ?>
             </select>
+        </p>
+
+        <p>
+            <label for="credit">Credit Limit</label>
+            <input type="number" step="0.01" name="credit" id="credit" value="<?=$customer->credit?>">
         </p>
             
         <input type="submit" value="Guardar">
