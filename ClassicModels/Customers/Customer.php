@@ -14,7 +14,7 @@ class Customer{
     function validate(): array{
         $errores = [];
         if(!isset($this->employee)){
-            $errores['officeCode'] = "El empleado debe tener asignado una oficina";
+            $errores['employee'] = "El cliente requiere tener asignado un cliente";
         }
 
         if(!isset($this->name) || strlen($this->name) < 3){
