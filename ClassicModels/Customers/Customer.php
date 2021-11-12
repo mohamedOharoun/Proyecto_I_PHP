@@ -18,7 +18,7 @@ class Customer{
         }
 
         if(!isset($this->name) || strlen($this->name) < 3){
-            $errores['firstName'] = "El cliente debe tener un nombre de al menos 3 letras";
+            $errores['name'] = "El cliente debe tener un nombre de al menos 3 letras";
         }
 
         return $errores;
