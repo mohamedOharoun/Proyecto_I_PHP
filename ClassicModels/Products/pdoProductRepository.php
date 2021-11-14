@@ -88,6 +88,26 @@ class PDOProductRepository{
         $stm = $this->conn->prepare("DELETE FROM products WHERE productCode=:code");
         $stm->execute(array(':code'=>$code));
     }
+
+
+    function find(string | null $name): array {
+        if (!isset($name) || strlen($name) == 0) {
+          $stm = $this->conn->query("select productCode as code, productName as name, productLine
+                                     from products
+                                     order by name");
+          $stm->execute();
+        } else {
+          $stm = $this->conn->prepare("select productCode as code, productName as name, productLine
+                                       from products
+                                       where productName like :search
+                                       order by name");
+          $stm->execute(array(':search' => '%'.$name.'%'));
+        }
+
+        return $stm->fetchAll();
+    }
+
+    
 }
 
 ?>
