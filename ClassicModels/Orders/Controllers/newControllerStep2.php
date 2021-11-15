@@ -1,6 +1,12 @@
 <?php declare(strict_types=1);
 
 namespace Mohamed\ClassicModels\Orders\Controllers;
+session_start();
+
+if(!isset($_SESSION['login'])){
+    header('Location: ../../Auth/login.php');
+    die();
+}
 
 require_once "../order.php";
 use Mohamed\ClassicModels\Orders\Order;

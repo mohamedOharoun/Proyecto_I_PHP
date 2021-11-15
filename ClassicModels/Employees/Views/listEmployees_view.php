@@ -1,22 +1,33 @@
+<?php
+if(session_status() != 2){
+    session_start();
+}
+
+
+if(!isset($_SESSION['login'])){
+    header('Location: ../../Auth/login.php');
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        button a{
-            text-decoration: none;
-            color: black;
-        }
-
-        td{
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="../../../public/style.css">
+    <title>Employees List</title>
 </head>
 <body>
+    <?php require_once('../../../public/menu.php')?>
+
+    <div id="title"><h1>EMPLOYEES' TABLE</h1></div>
+
+    <div id="btn-area">
+        <button><a href="../Create/newEmployee_controller.php">New Employee</a></button>
+    </div>
+
     <table>
         <tr>
             <th>Number</th>
@@ -27,8 +38,8 @@
             <th>Email</th>
             <th>Reports To</th>
             <th>Office Code</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <?php foreach($employees as $employee): ?>
         <tr>
@@ -40,12 +51,12 @@
             <td><?=$employee['email']?></td>
             <td><?=$employee['reportsTo']?></td>
             <td><?=$employee['officeCode'] . '. ' . $employee['officeCity']?></td>
-            <td><a href="../Update/editEmployee_controller.php?number=<?=$employee['employeeNumber']?>">Editar</a></td>
-            <td><a href="../Delete/deleteEmployee_controller.php?number=<?=$employee['employeeNumber']?>">Eliminar</a></td>
+            <td><a href="../Update/editEmployee_controller.php?number=<?=$employee['employeeNumber']?>">Edit</a></td>
+            <td><a href="../Delete/deleteEmployee_controller.php?number=<?=$employee['employeeNumber']?>">Delete</a></td>
         </tr>
         <?php endforeach; ?>
     </table>
 
-    <button><a href="../Create/newEmployee_controller.php">Nuevo</a></button>
+    <?php require_once('../../../public/footer.html')?>
 </body>
 </html>

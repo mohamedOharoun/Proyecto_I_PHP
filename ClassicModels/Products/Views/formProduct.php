@@ -1,3 +1,14 @@
+<?php
+if(session_status() != 2){
+    session_start();
+}
+
+
+if(!isset($_SESSION['login'])){
+    header('Location: ../../Auth/login.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,5 +81,7 @@
         <input type="hidden" name="update" value="<?=$update?>">
         <input type="submit" value="Guardar">
     </form>
+
+    <?php require_once('../../../public/footer.html')?>
 </body>
 </html>

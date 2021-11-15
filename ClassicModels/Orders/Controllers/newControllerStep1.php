@@ -1,6 +1,12 @@
 <?php declare(strict_types=1);
 
 namespace Mohamed\ClassicModels\Oders\Controllers;
+session_start();
+
+if(!isset($_SESSION['login'])){
+    header('Location: ../../Auth/login.php');
+    die();
+}
 
 require_once "../PDOOrderRepository.php";
 use Mohamed\ClassicModels\Orders\PDOOrderRepository as Repository;

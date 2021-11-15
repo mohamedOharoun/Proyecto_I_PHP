@@ -2,6 +2,13 @@
 
 namespace Mohamed\ClassicModels\Customers\Controllers\Read;
 
+session_start();
+
+if(!isset($_SESSION['login'])){
+    header('Location: ../../../Auth/login.php');
+    die();
+}
+
 require_once '..\..\..\factoryConnection.php';
 use Mohamed\ClassicModels\FactoryConnection;
 require_once '..\..\pdoCustomerRepository.php';

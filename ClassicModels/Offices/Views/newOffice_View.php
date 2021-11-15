@@ -1,3 +1,14 @@
+<?php
+if(session_status() != 2){
+    session_start();
+}
+
+
+if(!isset($_SESSION['login'])){
+    header('Location: ../../Auth/login.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -59,7 +70,7 @@
             <input type="text" name="addressLine2" id="addressLine2">
         </p>
             
-        <input type="submit" value="guardar">
+        <input type="submit" value="Save">
     </form>
 </body>
 </html>

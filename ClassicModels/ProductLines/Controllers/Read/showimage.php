@@ -1,6 +1,13 @@
 <?php declare(strict_types=1);
 
 namespace Mohamed\ClassicModels\ProductLines\Controllers\Read;
+session_start();
+
+if(!isset($_SESSION['login'])){
+    header('Location: ../../Auth/login.php');
+    die();
+}
+
 require_once "../../ProductLine.php";
 use Mohamed\ClassicModels\ProductLines\ProductLine;
 require_once "../../../factoryConnection.php";

@@ -1,23 +1,33 @@
+<?php
+if(session_status() != 2){
+    session_start();
+}
+
+if(!isset($_SESSION['login'])){
+    header('Location: ../../Auth/login.php');
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        button a{
-            text-decoration: none;
-            color: black;
-        }
-
-        td{
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="../../../public/style.css">
+    <title>Product Lines List</title>
 </head>
 <body>
-    <table>
+    <?php require_once('../../../public/menu.php')?>
+
+    <div id="title"><h1>TABLE OF PRODUCTS</h1></div>
+
+    <div id="btn-area">
+        <button><a href="../Create/newProduct_controller.php">New Product</a></button>
+    </div>
+
+    <table cellspacing="0">
         <tr>
             <th>Code</th>
             <th>Name</th>
@@ -42,12 +52,15 @@
             <td><?=$product['quantityInStock']?></td>
             <td><?=$product['buyPrice']?></td>
             <td><?=$product['MSRP']?></td>
-            <td><a href="../Update/editProduct_controller.php?code=<?=$product['productCode']?>">Editar</a></td>
-            <td><a href="../Delete/deleteProduct_controller.php?code=<?=$product['productCode']?>">Eliminar</a></td>
+            <td><a href="../Update/editProduct_controller.php?code=<?=$product['productCode']?>">Edit</a></td>
+            <td><a href="../Delete/deleteProduct_controller.php?code=<?=$product['productCode']?>">Delete</a></td>
         </tr>
         <?php endforeach; ?>
     </table>
+    
+    
+    
 
-    <button><a href="../Create/newProduct_controller.php">Nuevo</a></button>
+    <?php require_once('../../../public/footer.html')?>
 </body>
 </html>

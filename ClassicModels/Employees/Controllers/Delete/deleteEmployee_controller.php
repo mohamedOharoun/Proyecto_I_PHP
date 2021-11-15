@@ -1,6 +1,11 @@
 <?php declare(strict_types=1);
 
 namespace Mohamed\ClassicModels\Employees\Controllers\Delete;
+session_start();
+
+if(!isset($_SESSION['login'])){
+    header('Location: ../../../Auth/login.php');
+}
 
 require_once '..\..\..\factoryConnection.php';
 use Mohamed\ClassicModels\FactoryConnection;

@@ -1,0 +1,154 @@
+body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+a
+{
+    text-decoration: none;
+    color: darkslategrey;
+}
+
+header
+{
+    background-color: rgba(40,42,53,255);
+    width: 80%;
+    margin-bottom: 0px;
+    color: white;
+    display: flex;
+    
+}
+
+#logo{
+    float: left;
+    width: 50%;
+    text-align: left;
+    margin-left: 90px;
+    margin-top: 10px;
+    font-size: 32px;
+}
+
+#options{
+    float: right;
+    width: 50%;
+    text-align: right;
+    margin-right: 90px;
+    margin-top: 25px;
+}
+header a
+{
+    color: white;
+    padding: 11px;
+    font-size: 16px;
+}
+
+nav
+{
+    position: sticky;
+    top: 0;
+    width: 80%;
+    display: flex;
+    justify-content: center; 
+    background-color: rgba(40,42,53,255);
+    margin-bottom: 20px;
+}
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li
+{
+    margin-right: 50px;
+}
+
+nav ul li:hover
+{
+    background-color: rgb(255, 255, 255, 0.1);
+    border-radius: 100px;
+}
+
+nav ul li a
+{
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 11px;
+    font-size: 24px;
+}
+
+#btn-area
+{
+    width: 80%;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+#title
+{
+    width: 80%;
+    text-align: left;
+}
+
+button
+{
+    background-color: rgba(233,223,151,255);
+    padding: 15px;
+    border-radius: 20px;
+}
+
+button a
+{
+    text-decoration: none;
+    color: darkslategray;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 16px;
+}
+
+table
+{
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+tr:nth-of-type(even)
+{
+    display: table-row;
+    background-color: rgb(26, 192, 192, 0.5);;
+    ;
+}
+
+th
+{
+    background-color: rgba(4,170,109,255);
+    color: white;
+    margin: 2px;
+    padding: 5px;
+}
+
+td
+{
+    margin: 2px;
+    padding: 5px;
+    text-align: center;
+}
+
+.footer
+{
+    width: 80%;
+    background-color: rgba(40,42,53,255);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+}

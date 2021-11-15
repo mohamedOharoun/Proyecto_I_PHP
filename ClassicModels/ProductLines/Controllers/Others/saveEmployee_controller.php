@@ -1,6 +1,12 @@
 <?php declare(strict_types=1);
 
 namespace Mohamed\ClassicModels\Controllers\Others;
+session_start();
+
+if(!isset($_SESSION['login'])){
+    header('Location: ../../Auth/login.php');
+    die();
+}
 
 require_once "../../../factoryConnection.php";
 use Mohamed\ClassicModels\FactoryConnection;
