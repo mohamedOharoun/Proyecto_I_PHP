@@ -41,8 +41,8 @@ if(!isset($_SESSION['login'])){
             <td><?=$productLine['textDescription']?></td>
             <td><?=$productLine['htmlDescription']?></td>
             <td><img src="showimage.php?name=<?=urlencode($productLine['name'])?>" width="32px"></td>
-            <td><button><a href="../Update/editProductLine_controller.php?name=<?=$productLine['name']?>">Editar</a></button></td>
-            <td><button><a href="../Delete/deleteProductLine_controller.php?name=<?=$productLine['name']?>">Eliminar</a></button></td>
+            <td><a href="../Update/editProductLine_controller.php?name=<?=$productLine['name']?>">Editar</a></td>
+            <td><a href="../Delete/deleteProductLine_controller.php?name=<?=$productLine['name']?>">Eliminar</a></td>
         </tr>
         <?php endforeach; ?>
     </table>
