@@ -21,10 +21,10 @@ if(!isset($_SESSION['login'])){
 <body>
     <?php require_once('../../../public/menu.php')?>
 
-    <div id="title"><h1>TABLE OF PRODUCT LINES</h1></div>
+    <div id="title"><h1>PRODUCT LINES' TABLE</h1></div>
 
     <div id="btn-area">
-        <button><a style="text-decoration:none; color:black;" href="../Create/newProductLine_controller.php">New Product Line</a></button>
+        <button><a href="../Create/newProductLine_controller.php">New Product Line</a></button>
     </div>
     <table>
         <tr>
@@ -41,8 +41,8 @@ if(!isset($_SESSION['login'])){
             <td><?=$productLine['textDescription']?></td>
             <td><?=$productLine['htmlDescription']?></td>
             <td><img src="showimage.php?name=<?=urlencode($productLine['name'])?>" width="32px"></td>
-            <td><a href="../Update/editProductLine_controller.php?name=<?=$productLine['name']?>">Editar</a></td>
-            <td><a href="../Delete/deleteProductLine_controller.php?name=<?=$productLine['name']?>">Eliminar</a></td>
+            <td><a href="../Update/editProductLine_controller.php?name=<?=$productLine['name']?>">Edit</a></td>
+            <td><a href="../Delete/deleteProductLine_controller.php?name=<?=$productLine['name']?>">Delete</a></td>
         </tr>
         <?php endforeach; ?>
     </table>

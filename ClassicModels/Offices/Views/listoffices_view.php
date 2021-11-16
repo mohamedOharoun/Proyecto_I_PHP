@@ -24,8 +24,9 @@ if(!isset($_SESSION['login'])){
     <div id="title"><h1>OFFICES' TABLE</h1></div>
 
     <div id="btn-area">
-    <button><a href="../Create/newOffice_controller.php">New Office</a></button>
+        <button><a href="../Create/newOffice_controller.php">New Office</a></button>
     </div>
+    
     <table>
         <tr>
             <th>Code</th>

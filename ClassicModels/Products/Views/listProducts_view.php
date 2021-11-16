@@ -21,7 +21,7 @@ if(!isset($_SESSION['login'])){
 <body>
     <?php require_once('../../../public/menu.php')?>
 
-    <div id="title"><h1>TABLE OF PRODUCTS</h1></div>
+    <div id="title"><h1>PRODUCTS' TABLE</h1></div>
 
     <div id="btn-area">
         <button><a href="../Create/newProduct_controller.php">New Product</a></button>

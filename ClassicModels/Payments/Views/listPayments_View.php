@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(session_status() != 2){
+    session_start();
+}
+
 
 if(!isset($_SESSION['login'])){
     header('Location: ../../Auth/login.php');
@@ -12,19 +15,13 @@ if(!isset($_SESSION['login'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        button a{
-            text-decoration: none;
-            color: black;
-        }
-
-        td{
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="../../public/style.css">
 </head>
 <body>
+    <?php require_once('../../public/menu2.php')?>
+
+    <div id="title"><h1>ORDERS' TABLE</h1></div>
+
     <table>
         <tr>
             <th>Customer Number</th>
@@ -41,5 +38,7 @@ if(!isset($_SESSION['login'])){
         </tr>
         <?php endforeach; ?>
     </table>
+
+    <?php require_once('../../public/footer.html')?>
 </body>
 </html>

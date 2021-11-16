@@ -31,7 +31,7 @@
             <a href="../../../Orders/Controllers/listOrders_controller.php">Orders</a>
         </li>
         <li>
-            <a href="../../../Payments/Controllers/listPayments_controller.php">Payments</a>
+            <a href="../../../Payments/Controllers/listPayments_Controller.php">Payments</a>
         </li>
     </ul>
 </nav>

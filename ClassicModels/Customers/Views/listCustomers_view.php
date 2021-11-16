@@ -60,8 +60,8 @@ if(!isset($_SESSION['login'])){
             <td><?=$customer['country']?></td>
             <td><?=$customer['salesRepEmployeeNumber']?></td>
             <td><?=$customer['creditLimit']?></td>
-            <td><a href="../Update/editCustomer_controller.php?number=<?=$customer['customerNumber']?>">Editar</a></td>
-            <td><a href="../Delete/deleteCustomer_controller.php?number=<?=$customer['customerNumber']?>">Eliminar</a></td>
+            <td><a href="../Update/editCustomer_controller.php?number=<?=$customer['customerNumber']?>">Edit</a></td>
+            <td><a href="../Delete/deleteCustomer_controller.php?number=<?=$customer['customerNumber']?>">Delete</a></td>
         </tr>
         <?php endforeach; ?>
     </table>
