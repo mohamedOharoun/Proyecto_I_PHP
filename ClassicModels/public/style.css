@@ -56,6 +56,7 @@ nav
     justify-content: center; 
     background-color: rgba(40,42,53,255);
     margin-bottom: 20px;
+    z-index: 10;
 }
 
 nav ul
@@ -119,6 +120,7 @@ table
     margin-bottom: 30px;
     border-collapse:collapse;
     border-spacing: 0; 
+    box-sizing: border-box;
 }
 
 tr:nth-of-type(even)
@@ -211,6 +213,19 @@ textarea:focus
 select
 {
     font-size: 20px;
+}
+
+#image ~ img
+{
+    margin-bottom: 10px;
+}
+
+#image
+{
+    background-color: transparent;
+    border: none;
+    position: relative;
+    top: -10px;
 }
 
 .footer

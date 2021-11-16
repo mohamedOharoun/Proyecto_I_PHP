@@ -23,7 +23,6 @@ $productLine = new ProductLine($_POST['name'],
 $errores = $productLine->validate();
 
 if(count($errores) > 0){
-    $enableDelete = strlen($currentName > 0);
     require '../../Views/formProductLine.php';
     die();
 }

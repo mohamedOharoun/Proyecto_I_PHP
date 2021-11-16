@@ -14,7 +14,9 @@ if(!isset($_SESSION['login'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>order</title>
+    <link rel="stylesheet" href="../../public/style.css">
+    <link rel="stylesheet" href="../../public/styleOrder.css">
+    <title>Order Form</title>
 </head>
 <body>
     <?php if (isset($errores) && count($errores) > 0): ?>
@@ -24,11 +26,15 @@ if(!isset($_SESSION['login'])){
         <?php endforeach; ?>
     <?php endif; ?>
 
-    <h1>Seleccionar un cliente</h1>
+    <?php require_once('../../public/menu2.php')?>
+
+    <h1>Select a client</h1>
  
-    <form action="newControllerStep1.php" method="post">
-        <input type="text" name="search" value="<?=$search?>">
-        <input type="submit" value="buscar">
+    <form action="newControllerStep1.php" method="post" id="form1">
+        <div id="form1">
+            <input type="text" name="search" value="<?=$search?>">
+            <input type="submit" value="Search">
+        </div>
     </form>
  
     <form action="newControllerStep2.php" method="post">
@@ -41,7 +47,9 @@ if(!isset($_SESSION['login'])){
             <?php endforeach; ?>
         </ol>
       
-        <input type="submit" value="siguiente">
+        <input type="submit" value="Next">
     </form>
+
+    <?php require_once('../../public/footer.html')?>
 </body>
 </html>

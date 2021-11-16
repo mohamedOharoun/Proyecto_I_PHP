@@ -14,7 +14,9 @@ if(!isset($_SESSION['login'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>order</title>
+    <link rel="stylesheet" href="../../public/style.css">
+    <link rel="stylesheet" href="../../public/styleOrder.css">
+    <title>Order Form</title>
 </head>
 <body>
     <?php if (isset($errores) && count($errores) > 0): ?>
@@ -24,18 +26,20 @@ if(!isset($_SESSION['login'])){
         <?php endforeach; ?>
     <?php endif; ?>
 
+    <?php require_once('../../public/menu2.php')?>
 
+    <h1>Order Details</h1>
     <form action="newControllerStep2.php" method="post">
         <input type="hidden" name="customerNumber" value="<?=$customerNumber?>">
         <input type="hidden" name="customerName" value="<?=$customerName?>">
 
-    <fieldset>
-        <legend>Orden</legend>
-        <p>cliente: <?=$customerName?></p>
+    <fieldset id="fieldset1">
+        <legend>Order</legend>
+        <p>Client: <?=$customerName?></p>
 
-        <p>Orderdate: <input type="date" name="orderDate" value="<?=$orderDate?>"></p>
-        <p>requiredDate: <input type="date" name="requiredDate" value="<?=$requiredDate?>"></p>
-        <p>shippedDate: <input type="date" name="shippedDate" value="<?=$shippedDate?>"></p>
+        <p>Order Date: <input type="date" name="orderDate" value="<?=$orderDate?>"></p>
+        <p>Required Date: <input type="date" name="requiredDate" value="<?=$requiredDate?>"></p>
+        <p>Shipped Date: <input type="date" name="shippedDate" value="<?=$shippedDate?>"></p>
 
             <ol>
                 <?php foreach($orderDetails as $i=>$orderDetail): ?>
@@ -58,14 +62,17 @@ if(!isset($_SESSION['login'])){
                  
                 <?php endforeach; ?>
             </ol>
-            <input type="submit" name="save" value="guardar">
+            <input type="submit" name="save" value="Save">
        
     </fieldset>
 
     <fieldset>
-        <legend>Seleccionar productos</legend>
-        <input type="text" name="search" value="<?=$search?>"">
-        <input type="submit" name="findProduct" value="buscar">
+        <legend>Select Products</legend>
+        <div id="form1">
+            <input type="text" name="search" value="<?=$search?>">
+            <input type="submit" name="findProduct" value="Search">
+        </div>
+        
    
         <ol>
             <?php foreach($products as $product): ?>
@@ -76,10 +83,12 @@ if(!isset($_SESSION['login'])){
             <?php endforeach; ?>
         </ol>
       
-        <input type="submit" name="addOrderDetail" value="añadir">
+        <input type="submit" name="addOrderDetail" value="Add">
     </fieldset>
    
        
     </form>
+
+    <?php require_once('../../public/footer.html')?>
 </body>
 </html>

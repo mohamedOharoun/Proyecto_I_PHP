@@ -31,9 +31,9 @@ if(!isset($_SESSION['login'])){
 
     <h1>Product Lines Form</h1>
 
-    <form action="../Others/saveEmployee_controller.php" method="POST" enctype="multipart/form-data">
+    <form action="../Others/saveProductLine_controller.php" method="POST" enctype="multipart/form-data">
         <p>
-            <label for="name">Nombre</label>
+            <label for="name">Name</label>
             <br>
             <input type="text" name="name" id="name" value="<?=$productLine->name?>" <?=$productLine->name != '' ? 'readonly' : '' ?>>
         </p>
@@ -52,10 +52,11 @@ if(!isset($_SESSION['login'])){
         <p>
             <label for="image">Image</label>
             <br>
-            <img src="showimage.php?name=<?php urlencode($productLine->name)?>" width="200px">
-            <br>
-            <input type="file" name="image" id="image">
-        </p>     
+            <img src="../Read/showimage.php?name=<?=$productLine->name?>" width="200px">
+            <input type="file" name="image" id="image" accept=".jpg, .png">
+        </p>
+        
+        <input type="hidden" name="currentName" value="<?=$productLine->name?>">
             
         <input type="submit" value="Save">
     </form>
