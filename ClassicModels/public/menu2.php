@@ -13,10 +13,10 @@
             <a href="../../index.php">HOME</a>
         </li>
         <li>
-            <a href="../../Offices/Controllers/Read/listOffices_controller.php">Offices</a>
+            <a href="../../Customers/Controllers/Read/listCustomers_controller.php">Customers</a>
         </li>
         <li>
-            <a href="../../Customers/Controllers/Read/listCustomers_controller.php">Customers</a>
+            <a href="../../Offices/Controllers/Read/listOffices_controller.php">Offices</a>
         </li>
         <li>
             <a href="../../Employees/Controllers/Read/listEmployees_controller.php">Employees</a>
@@ -25,7 +25,7 @@
             <a href="../../Products/Controllers/Read/listProducts_controller.php">Products</a>
         </li>
         <li>
-            <a href="../../ProductLines/Controllers/Read/listProductLines_controller.php">ProductLines</a>
+            <a href="../../ProductLines/Controllers/Read/listProductLines_controller.php">Product Lines</a>
         </li>
         <li>
             <a href="../../Orders/Controllers/listOrders_controller.php">Orders</a>
