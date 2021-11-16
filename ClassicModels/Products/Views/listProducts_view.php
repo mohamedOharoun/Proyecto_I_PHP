@@ -7,6 +7,7 @@ if(!isset($_SESSION['login'])){
     header('Location: ../../Auth/login.php');
     die();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,10 @@ if(!isset($_SESSION['login'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../public/style.css">
-    <title>Product Lines List</title>
+    <?php
+        require_once '../../../public/tableFontStyle.php';
+    ?>
+    <title>Products List</title>
 </head>
 <body>
     <?php require_once('../../../public/menu.php')?>
@@ -27,7 +31,7 @@ if(!isset($_SESSION['login'])){
         <button><a href="../Create/newProduct_controller.php">New Product</a></button>
     </div>
 
-    <table cellspacing="0">
+    <table>
         <tr>
             <th>Code</th>
             <th>Name</th>

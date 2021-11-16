@@ -4,13 +4,13 @@
     </div>
     <div id="options">
         <span><?=$_SESSION['name']?></span>
-        <a href="#">Change Font Size</a>
+        <a href="../../formCookies.php">Change Font Size</a>
     </div>
 </header>
 <nav class="menu">
     <ul>
         <li>
-            <a href="#">HOME</a>
+            <a href="../../index.php">HOME</a>
         </li>
         <li>
             <a href="../../Offices/Controllers/Read/listOffices_controller.php">Offices</a>

@@ -16,11 +16,15 @@ if(!isset($_SESSION['login'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/style.css">
+    <?php
+        require_once '../../public/tableFontStyle.php';
+    ?>
+    <title>Payments List</title>
 </head>
 <body>
     <?php require_once('../../public/menu2.php')?>
 
-    <div id="title"><h1>ORDERS' TABLE</h1></div>
+    <div id="title"><h1>PAYMENTS' TABLE</h1></div>
 
     <table>
         <tr>

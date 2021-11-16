@@ -117,13 +117,14 @@ table
 {
     width: 80%;
     margin-bottom: 30px;
+    border-collapse:collapse;
+    border-spacing: 0; 
 }
 
 tr:nth-of-type(even)
 {
     display: table-row;
-    background-color: rgb(26, 192, 192, 0.5);;
-    ;
+    background-color: rgb(26, 192, 192, 0.5);
 }
 
 th
@@ -144,6 +145,72 @@ td
 td a
 {
     text-decoration: underline;
+}
+
+/*FORMS*/
+form
+{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    width: 80%;
+    background-color: #ececf8;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+label
+{
+    font-size: 22px;
+}
+
+input
+{
+    width:80%;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #ccc;
+    outline:none;
+    padding: 6px;
+    font-size: 20px;
+}
+  
+input:focus
+{
+    border:1px solid #56b4ef;
+    box-shadow: 0px 0px 3px 1px #c8def0;
+}
+
+input[type="submit"]
+{
+    width: 100%;
+    position: relative;
+    margin: auto;
+    background-color: rgba(4,170,109,255);
+    color: white;
+}
+
+textarea
+{
+    border-radius: 10px;
+    width: 80%;
+    height: 150px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+textarea:focus
+{
+    border:1px solid green;
+    box-shadow: 0px 0px 3px 1px #c8def0;
+}
+
+select
+{
+    font-size: 20px;
 }
 
 .footer

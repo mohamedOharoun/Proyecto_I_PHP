@@ -71,8 +71,20 @@ class PDOOfficeRepository{
     }
 
     function delete(string $code): void{
-        $stm = $this->conn->prepare("DELETE FROM offices WHERE officecode=:code");
-        $stm->execute(array(':code'=>$code));
+        $this->conn->beginTransaction();
+        try{
+            $stm = $this->conn->prepare("DELETE FROM employees WHERE officecode=:code");
+            $stm->execute(array(':code'=>$code));
+
+            $stm = $this->conn->prepare("DELETE FROM offices WHERE officecode=:code");
+            $stm->execute(array(':code'=>$code));
+
+            $this->conn->commit();
+        }catch (\Exception $e) {
+            $this->conn->rollBack();
+            throw $e;
+        }
+        
     }
 }
 

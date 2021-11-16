@@ -16,7 +16,8 @@ if(!isset($_SESSION['login'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../../public/style.css">
+    <title>Employee Form</title>
 </head>
 <body>
     <?php if (isset($errores) && count($errores) > 0): ?>
@@ -26,39 +27,50 @@ if(!isset($_SESSION['login'])){
         <?php endforeach; ?>
     <?php endif; ?>
 
+    <?php require_once('../../../public/menu.php')?>
+
+    <h1>Employees Form</h1>
+
     <form action="../Others/saveEmployee_controller.php" method="POST">
-        <p>
+        <p <?=!isset($employee->number) ? 'style="display: none;"' : ""?>>
             <label for="number">Employee Number</label>
+            <br>
             <input name="number" value="<?=$employee->number?>" readonly>
         </p>
         
         <p>
             <label for="jobTitle">Job Title</label>
+            <br>
             <input type="text" name="jobTitle" id="jobTitle" value="<?=$employee->jobTitle?>">
         </p>
 
         <p>
             <label for="lastName">Last Name</label>
+            <br>
             <input type="text" name="lastName" id="lastName" value="<?=$employee->lastName?>">
         </p>
 
         <p>
             <label for="firstName">First Name</label>
+            <br>
             <input type="text" name="firstName" id="firstName" value="<?=$employee->firstName?>">
         </p>
 
         <p>
             <label for="extension">Extension</label>
+            <br>
             <input type="text" name="extension" id="extension" value="<?=$employee->extension?>">
         </p>
 
         <p>
             <label for="email">Email</label>
+            <br>
             <input type="text" name="email" id="email" value="<?=$employee->email?>">
         </p>
 
         <p>
             <label for="officeCode">Office Code</label>
+            <br>
             <select name="officeCode" id="officeCode">
                 <?php foreach($offices as $office): ?>
                     <option value="<?=$office['officeCode']?>"
@@ -71,6 +83,7 @@ if(!isset($_SESSION['login'])){
         
         <p>
             <label for="reportsTo">Reports to</label>
+            <br>
             <select name="reportsTo" id="reportsTo">
                 <?php foreach($employees as $emp): ?>
                     <option value="<?=$emp['employeeNumber']?>"
@@ -83,5 +96,7 @@ if(!isset($_SESSION['login'])){
             
         <input type="submit" value="Guardar">
     </form>
+
+    <?php require_once('../../../public/footer.html')?>
 </body>
 </html>
