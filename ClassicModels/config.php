@@ -3,8 +3,8 @@
 return (object) array(
     'database' => (object) array (
         'dbname' => 'classicmodels',
-        'user' => 'root',
-        'password' => '',
+        'user' => 'app_classicmodels',
+        'password' => 'admin',
         'host' => 'localhost',
         'driver' => 'pdo_mysql',
         'type' => 'mysql'

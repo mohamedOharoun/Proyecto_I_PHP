@@ -1,12 +1,9 @@
 <?php declare(strict_types=1);
 
 namespace Mohamed\ClassicModels\Employees\Controllers\Create;
-session_start();
 
-if(!isset($_SESSION['login'])){
-    header('Location: ../../../Auth/login.php');
-    die();
-}
+require_once '../../../public/sessionController3.php';
+
 
 require_once '..\..\..\factoryConnection.php';
 use Mohamed\ClassicModels\FactoryConnection;

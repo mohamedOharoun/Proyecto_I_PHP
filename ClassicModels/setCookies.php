@@ -2,6 +2,6 @@
 
 setcookie("size", $_POST["size"], 0, "/", "", false, true);
 
-header("location: index.php");
+header("location: Products/Controllers/Read/listProducts_controller.php");
 exit();
 ?>

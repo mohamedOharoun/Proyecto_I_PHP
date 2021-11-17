@@ -20,7 +20,7 @@
             $_SESSION['login'] = true;
             $_SESSION['name'] = $res;
             $res = null;
-            header('Location: ../Customers/Controllers/Read/listCustomers_controller.php');
+            header('Location: ../Products/Controllers/Read/listProducts_controller.php');
         }else{
             header('Location: login.php?err=1');
         }
